@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teszt</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="container">
+        <div id="main-top">
+            <div id="calendar" onclick="location.href='calendar.html'"></div>
+            <div id="top-title">Laura<div id="love-container"><div id="heart"></div><div id="love">love</div></div>Géza</div>
+            <div id="to-top-bottom-wrapper">
+                <a href="#container"><span id="to-top"></span></a>
+                <a href="#bottom"><span id="to-bottom"></span></a>
+            </div>
+        </div>
+        <div id="img-container">
+            <div id="slideshow">
+                <div id="image-0"></div>
+                <div id="image-1"></div>
+                <div id="image-2"></div>
+                <div id="image-3"></div>
+                <div id="image-4"></div>
+            </div>
+        </div>
+        <div id="timeline-dates">
+            <div id="dates-header">
+                <button class="dates-arrow" onclick="plusDates(-1)">&#10094</button>
+                <button class="dates-arrow" onclick="plusDates(+1)">&#10095</button>
+            </div>
+        </div>
+        <div id="timeline"></div>
+        <a href="#adding-form"><button id="add-button">Hozzáadás</button></a>
+         <form id="adding-form" method="post" action="form.php" enctype="multipart/form-data">
+            <p>Program kezdete:</p><input type="date" name="date-start" class="date" required>
+            <p>Program vége:</p><input type="date" name="date-end" class="date">
+            <p class="form-date-place-text">Helyszín / Program:</p>
+            <input type="text" name="place-0" class="form-date-place" placeholder="Helyszín / Program" maxlength="28" required>
+            <div id="plus-minus-buttons">
+                <button class="plus-minus-sign" type="button" onclick="addprogram()">&#x0002B<span id="remaining">Hozzáadás (3)</span></button>
+                <button class="plus-minus-sign inactive" type="button" onclick="deleteprogram()">&#x02212</button>
+            </div>
+            <p class="form-drive-text">Drive link:</p>
+            <input type="text" name="drive" class="form-drive" placeholder="Drive link">
+            <div id="img-upload"><p>Kép feltöltés:</p><input type="file" accept="image/jpeg" name="fileToUpload"></div>
+            <div id="submit-center"><button type="submit" id="form-submit">Küldés</button></div>
+        </form>
+        <a id="bottom"></a>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/myscript.js"></script>
+
+
+</body>
+
+</html>

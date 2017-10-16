@@ -1,0 +1,486 @@
+---
+---
+
+@import '_bounce';
+@import '_slide';
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/Dudu_Calligraphy.ttf);
+}
+
+html, body {
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    font-family: 'myFirstFont', serif;
+}
+
+a {
+    text-decoration: none;
+    color: #444444;
+    
+    &:visited {
+        color: #444444;
+    }
+}
+
+*:focus {
+    outline: none;
+}
+
+#container {
+    margin: 50px auto 0px auto;
+    padding: 0px 0px 20px 0px;
+    border-radius: 5px;
+    height: auto;
+}
+
+// *Felső menüsáv* //
+#main-top {
+    width: 100%;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #BBBBBB;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    
+    #calendar {
+        width: 25px;
+        height: 50px;
+        line-height: 50px;
+        
+        &:before {
+            font-family: FontAwesome;
+            content: "\f073";
+            font-size: 25px;
+            color: #666666;
+            padding: 0 0 0 10px;
+            transition: color 0.2s ease-in-out;
+        }
+        
+        &:hover:before {
+            color: #FF5252;
+            cursor: pointer;
+        }
+    }
+    
+    #top-title {
+        font-size: 22px;
+        color: #444444;
+        display: flex;
+        line-height: 50px;
+        padding: 0 0 0 20px;
+        
+        #love-container {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            
+            #heart {
+                width: 25px;
+                height: 50px;
+                margin: 0 auto;
+                position: absolute;
+                left: 0;
+                right: 0;
+                animation: bounce 8s infinite;
+    
+                &:before {
+                    font-family: FontAwesome;
+                    content: "\f004";
+                    font-size: 25px;
+                    color: #FF5252;
+                }
+            }
+                
+            #love {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -50px;
+                font-weight: bold;
+                font-size: 24px;
+                text-align: center;
+                font-variant: small-caps;
+                color: #FF5252;
+                animation: bounce 8s infinite;
+                animation-delay: 4s;
+            }
+        }
+    }
+    
+    #to-top-bottom-wrapper {
+        font-size: 30px;
+        color: #666666;
+        margin:0 10px 0 0;
+        line-height: 50px;
+        position: absolute;
+        right: 0;
+        display: flex;
+        
+        
+        #to-top {
+            margin: 0 15px;
+            
+            &:before {
+                font-family: FontAwesome;
+                content: "\f0d8";
+                color: #666666;
+                transition: color 0.3s ease-in-out;
+            }
+            
+            &:hover:before {
+                color: #FF5252;
+            }
+        }
+        
+        #to-bottom {
+            &:before {
+                font-family: FontAwesome;
+                content: "\f0d7";
+                color: #666666;
+                transition: color 0.3s ease-in-out;
+            }
+            
+            &:hover:before {
+                color: #FF5252;
+            }
+        }
+    }
+}
+
+// *Képvetítő* //
+@mixin image($link) {
+    background-image: url(../imgs/default/#{$link});
+    @media (min-width: 769px) {background-image: url(../imgs/desktop/#{$link});}
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+            
+    &:before {
+        padding-bottom: 67%;
+        @media (min-width: 769px) {padding-bottom: 56%;}
+        content: "";
+        display: block;
+    }
+}
+
+#img-container {
+    width: 100vw;
+    max-width: 1366px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    
+    #slideshow {
+        width: 500%;
+        height: 100%;
+        display: flex;
+        animation: slide 30s infinite;
+        
+        @for $i from 0 through 4 {
+            #image-#{$i} {@include image('img#{$i}.jpg')};
+        }
+    }
+}
+
+
+// *Idővonal dátum választó* //
+#timeline-dates {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    padding: 0px 0px 20px 0px;
+    margin: 20px auto;
+    border-radius: 3px;
+    color: #444444;
+        
+    #dates-header {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px;
+        
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 28px;
+        }
+        
+        .dates-arrow {
+            margin: 0px 10px;
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+            color: #444444;
+            font-size: 26px;
+            transition: color 0.3s ease-out;
+            
+            &:hover {
+                color: #FF5252;
+            }
+        }
+    }
+    
+    .curr-date {
+        display: none;
+    }
+    
+    .timeline-date {
+        display: none;
+        flex-flow: column;
+        align-items: center;
+     
+        a {
+        margin: 5px 0px;
+        font-size: 20px;
+        transition: color 0.3s ease-out;
+        }
+ 
+        a:hover {
+            color: #FF5252;
+        }
+    }
+}
+
+// *Idővonal* //
+#timeline {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0px auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 40px 0px;
+    position: relative;
+       
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 12px;
+        height: 100%;
+        border: 1px dashed #BBBBBB;       
+    }
+    
+    li {
+        margin: 80px 0px;
+        position: relative;
+        padding: 0px 0px 20px 30px;
+        font-weight: bold;
+        font-size: 16px;
+        
+        span {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 12px;
+            height: 100%;
+            border: 1px solid #FF5252;       
+        }
+        
+       &:after {
+            position: absolute;
+            top: -5px;
+            left: 0px;
+            font-family: FontAwesome;
+            content: "\f004";
+            font-size: 26px;
+            color: #FF5252; 
+        }
+        
+        #drive {
+           position: relative;
+            
+           i {
+                position: absolute;
+                font-size: 24px;
+                color: #FF5252;
+                padding-left: 10px;
+                opacity: 1;
+                transition: opacity 0.3s ease-out;
+                bottom: 1px;
+            }
+            
+            i:hover {
+                opacity: 0.7;
+                transition: opacity 0.3s ease-in;         
+            }
+        }
+        
+        .timeline-img {
+            border-radius: 3px;
+            margin-bottom: 5px;
+            width: 230px;
+        }
+    }   
+}
+
+// *Hozzáadás gomb* //
+#add-button {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    margin: 0px auto;
+    justify-content: center;
+    line-height: 50px;
+    border: 1px solid #FF5252;
+    border-radius: 3px;
+    background-color: transparent;
+    color: #FF5252;
+    font-weight: bold;
+    transition: all 150ms ease-out;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: #FF5252;
+        color: #FFFFFF;
+    }
+}
+
+// *Hozzáadás az idővonalhoz* //
+#adding-form {
+    width: 100%;
+    height: auto;
+    max-width: 335px;
+    display: none;
+    flex-flow: column;
+    align-items:baseline;
+    margin: 5px auto 0px auto;
+    box-sizing: border-box;
+    border: 1px solid #AAAAAA;
+    font-size: 14px;
+     
+    &.active {
+        display: flex;
+    }
+    
+    .date {
+        width: 100%;
+        border: 0;
+        border-top: 1px solid #AAAAAA;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    .form-date-place-text, .form-drive-text {
+        opacity: 0;
+        font-size: 14px;
+        color: #444444;
+        transition: opacity 0.2s ease-out;
+        
+        &.active {
+            opacity: 1;
+        }
+    }
+    
+    .form-date-place, .form-drive {
+        width: 100%;
+        height: 30px;
+        border: 0;
+        border-top: 1px solid #AAAAAA;
+        background-color: #FFFFFF;
+    }
+    
+    #plus-minus-buttons {
+        display: flex;
+        flex-flow: row;
+    }
+    
+    .plus-minus-sign {
+        display: block;
+        padding: 5px;
+        font-size: 20px;
+        color: #444444;
+        transition: color 0.2s ease-out;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        
+            
+        &:hover {
+            color: #FF5252;
+            
+            #remaining {
+                visibility: visible;
+            }
+        }
+        
+        #remaining {
+            visibility: hidden;
+            color: #444444;
+            font-size: 10px;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            top: 25px;
+            left: 0px;
+        }
+    }
+        
+    .inactive {
+        display: none;
+    }
+    
+    #img-upload {
+        margin: 30px 0px 0px 0px;
+        font-size: 14px;
+    }
+    
+    #submit-center {
+        margin: 30px auto 10px auto;
+    }
+    
+    #form-submit {
+        width: 70px;
+        height: 30px;
+        background-color: transparent;
+        border: 1px solid #FF5252;
+        border-radius: 3px;
+        text-transform: capitalize;
+        color: #FF5252;
+        font-weight: bold;
+        transition: all 150ms ease-out;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: #FF5252;
+            color: #FFFFFF;
+        }
+    }
+}
+
+
+@media screen and (min-width: 769px) {
+    
+  .timeline-img {
+      width: 300px !important;
+    }
+    
+    #timeline #drive i {
+        font-size: 26px;
+    }
+    
+    #timeline li {
+        font-size: 20px;
+    }
+    
+    #img-container {
+        width: 80vw;
+        max-width: 1366px;
+    }
+}

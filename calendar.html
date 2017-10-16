@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naptár</title>
+    <link rel="stylesheet" type="text/css" href="css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div id="container">
+  <div id="header">
+    <button class="dates-arrow" onclick="plusDates(-1)">&#10094;</button>
+    <div id="dates">
+      <p class="curr-date"></p>
+      <p class="curr-date"></p>
+    </div>
+    <button class="dates-arrow" onclick="plusDates(+1)">&#10095;</button>
+  </div>
+  <div id="calendar">
+    <ul id="weekdays">
+      <li>H</li>
+      <li>K</li>
+      <li>Sze</li>
+      <li>Cs</li>
+      <li>P</li>
+      <li>Szo</li>
+      <li>V</li>
+    </ul>
+    <ul id="days"></ul>
+  </div>
+</div>
+<div id="adding">
+    <div id="adding-background"></div>
+    <div id="adding-content">
+        <button id="closer"></button>
+        <form action="" method="post">
+            <label>Dátum:</label><label id="form-data"></label><br />
+            
+            <label>Idö:</label><input type="text" class="hours-mins" placeholder="óó" maxlength="2" required pattern="([0-1]{1}[0-9]{1}|20|21|22|23)"><div class="hours-mins-line"></div>:<input type="text" class="hours-mins" placeholder="pp" maxlength="2" required pattern="[0-5]{1}[0-9]{1}"><div class="hours-mins-line"></div><br />
+            
+            <label>Helyszín:</label><input type="text" name="place" class="place-program" size="23" maxlength="23" required><div class="place-program-line"></div>
+            
+            <label>Program:</label><input type="text" name="program" class="place-program" size="23" maxlength="23" required><div class="place-program-line"></div>
+            
+           <div id="button-wrapper"><button type="submit" id="form-submit">Küldés</button></div>
+        </form>
+    </div>  
+</div>
+    
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/calendar.js"></script>
+    
+</body>
+
+</html>
