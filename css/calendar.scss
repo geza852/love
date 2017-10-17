@@ -1,6 +1,8 @@
 ---
 ---
 
+@import '_bounce';
+
 @font-face {
     font-family: myFirstFont;
     src: url(../fonts/Dudu_Calligraphy.ttf);
@@ -34,6 +36,89 @@ a {
     margin: 20px auto 0 auto;
 }
 
+// *Felső menüsáv* //
+#main-top {
+    width: 100%;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #BBBBBB;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    
+    #history {
+        width: 25px;
+        height: 50px;
+        line-height: 50px;
+        
+        &:before {
+            font-family: FontAwesome;
+            content: "\f1da";
+            font-size: 25px;
+            color: #666666;
+            padding: 0 0 0 10px;
+            transition: color 0.2s ease-in-out;
+        }
+        
+        &:hover:before {
+            color: #FF5252;
+            cursor: pointer;
+        }
+    }
+    
+    #top-title {
+        font-size: 22px;
+        color: #444444;
+        display: flex;
+        line-height: 50px;
+        padding: 0 0 0 20px;
+        
+        #love-container {
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            
+            #heart {
+                width: 25px;
+                height: 50px;
+                margin: 0 auto;
+                position: absolute;
+                left: 0;
+                right: 0;
+                animation: bounce 8s infinite;
+    
+                &:before {
+                    font-family: FontAwesome;
+                    content: "\f004";
+                    font-size: 25px;
+                    color: #FF5252;
+                }
+            }
+                
+            #love {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -50px;
+                font-weight: bold;
+                font-size: 24px;
+                text-align: center;
+                font-variant: small-caps;
+                color: #FF5252;
+                animation: bounce 8s infinite;
+                animation-delay: 4s;
+            }
+        }
+    }
+}
+
 // *Header* //
 #header {
   height: 200px;
@@ -56,7 +141,7 @@ a {
         border-radius: 0 5px 5px 0;
     }
       
-    &:nth-child(2) {
+    &:nth-child(3) {
         border-radius: 5px 0 0 5px;
     }
 
