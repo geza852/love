@@ -246,4 +246,3 @@ function deleteprogram() {
 
 
 // *Function meghívások* //
-
