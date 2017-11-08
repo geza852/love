@@ -188,8 +188,8 @@ document.getElementById("add-button").addEventListener("click", function () {
 
 // *Program hozzáadás* //
 var pindex = 1;
+
 function remaining() {
-    
     document.getElementById("remaining").innerHTML = "Hozzáadás (" + (4 - pindex) + ")";
     if (pindex > 3) {
         document.getElementById("remaining").innerHTML = "";
