@@ -1,4 +1,3 @@
-<?php header('Location: index.html'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,9 +37,6 @@ if ($uploadOk == 1) {
     }
 }
 // if everything is ok, try to upload file
-
-
-    
 
     // *Form adatok elküldése* //
     $myFile = "data.json";
@@ -95,7 +91,10 @@ if ($uploadOk == 1) {
    catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
    }
-
+if ($uploadOk == 0) {
+    echo '<script>alert("Hiba történt a hozzáadás során!");</script>';
+}
+echo '<script>parent.window.location.reload(true);</script>'; // Redirect and reload index
 ?>
 </body>
 </html>

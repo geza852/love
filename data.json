@@ -288,11 +288,55 @@
         ],
         "places": [
             "\u00dajpest V\u00e1rosnapok",
-            "Korda, Balázs Klári koncert",
-            "Balkán Fanatik koncert",
+            "Korda, Bal\u00e1zs Kl\u00e1ri koncert",
+            "Balk\u00e1n Fanatik koncert",
             "Neoton koncert"
         ],
         "drive": "",
         "imgname": "neoton.jpg"
+    },
+    {
+        "dates": [
+            "2017-09-20",
+            ""
+        ],
+        "places": [
+            "Duna pl\u00e1za"
+        ],
+        "drive": "",
+        "imgname": "it.jpg"
+    },
+    {
+        "dates": [
+            "2017-10-07",
+            ""
+        ],
+        "places": [
+            "Macskaki\u00e1ll\u00edt\u00e1s"
+        ],
+        "drive": "https:\/\/drive.google.com\/open?id=0B1hZGvsgdZekMWZDVGpEU1JHUzA",
+        "imgname": null
+    },
+    {
+        "dates": [
+            "2017-11-01",
+            ""
+        ],
+        "places": [
+            "Gell\u00e9rt-hegy"
+        ],
+        "drive": "",
+        "imgname": null
+    },
+    {
+        "dates": [
+            "2017-11-22",
+            ""
+        ],
+        "places": [
+            "Duna pl\u00e1za"
+        ],
+        "drive": "",
+        "imgname": "halal.jpg"
     }
 ]

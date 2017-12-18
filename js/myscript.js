@@ -1,9 +1,9 @@
 // *Input figyelő* //
-function inputValue() {
-    if ($(this).val().length !== 0) {
-        $(event.currentTarget).prev().addClass("active");
+function inputValue(e) {
+    if (e.currentTarget.value.length !== 0) {
+        e.currentTarget.previousElementSibling.style.opacity = "1";
     } else {
-        $(event.currentTarget).prev().removeClass("active");
+       e.currentTarget.previousElementSibling.style.opacity = "0";
     }
 }
 
@@ -180,9 +180,16 @@ var response;
 
 // *Form megnyitás* //
 document.getElementById("add-button").addEventListener("click", function () {
-    document.getElementById("adding-form").setAttribute("class", "active");
-    $(".form-date-place:eq(0)").bind("keyup", inputValue);
-    $(".form-drive").bind("keyup", inputValue);
+    var formDateDrive = document.getElementsByClassName("form-date-drive"),
+        formPlaceFirst = document.getElementById("form-place-first"),
+        addingForm =  document.getElementById("adding-form");
+    
+    addingForm.setAttribute("class", "active");
+    formPlaceFirst.addEventListener("keyup", inputValue);
+    
+    for (var i = 0; i < formDateDrive.length; i++) {
+        formDateDrive[i].addEventListener("keyup", inputValue);
+    } 
 });
 
 
@@ -197,20 +204,15 @@ function remaining() {
 }
 
 function addprogram() {
-    var newProgramText = document.createElement("p"),
-        newProgram = document.createElement("input");
+    var newProgram = document.createElement("input");
     
-    newProgramText.innerHTML = "Helyszín / Program:";
-    newProgramText.className = "form-date-place-text";
     newProgram.type = "text";
-    newProgram.className = "form-date-place";
+    newProgram.className = "form-place";
     newProgram.setAttribute("name", "place-" + pindex);
     newProgram.setAttribute("placeholder", "Helyszín / Program");
     newProgram.setAttribute("maxlength", 28);
-
-    $(".form-date-place").last().after(newProgramText);
-    $(".form-date-place-text").last().after(newProgram);
-    $(".form-date-place").last().on("keyup", inputValue);
+    
+    $(".form-place").last().after(newProgram);
     pindex++;
     remaining();
     if (pindex > 1) {
@@ -224,8 +226,7 @@ function addprogram() {
 
 // *Program törlés* //
 function deleteprogram() {
-    $(".form-date-place").last().remove();
-    $(".form-date-place-text").last().remove();
+    $(".form-place").last().remove();
     pindex--;
     remaining();
     if (pindex == 1) {
@@ -235,6 +236,28 @@ function deleteprogram() {
         $(".plus-minus-sign:eq(0)").css("visibility", "visible");
     }
 }
+
+// *Program képméret ellenőrzés* //
+var _URL = window.URL,
+    formImgError = document.getElementById("form-img-error");
+
+document.getElementById("form-img").addEventListener("change", function(e){
+    var file,
+        img;
+        
+    formImgError.innerHTML = "";
+    
+    if (file = this.files[0]) {
+        img = new Image();
+        img.onload = function() {
+            if ((this.width > 500) || (this.height > 600)) {
+                e.target.value = "";
+                formImgError.innerHTML = "Túl nagy képméret!";
+            }
+        };
+        img.src = _URL.createObjectURL(file);
+    }
+});
 
 // *Lassú ugrás linkekhez* //
 window.onload = function () {
