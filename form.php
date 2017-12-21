@@ -1,3 +1,4 @@
+<?php header("Location:index.html"); ?>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,12 +43,11 @@ if ($uploadOk == 1) {
     $myFile = "data.json";
     $arr_data = array(); // create empty array
     
-    $date = $_POST["date"];
-    for ($i = 0; $i < 4; $i++) {
+/*    for ($i = 0; $i < 4; $i++) {
         if (isset($_POST["place-" . $i])) {
             $places[$i] = $_POST["place-" . $i];
         }
-    }
+    } */
   try
   {
 	   //Get form data
@@ -91,10 +91,6 @@ if ($uploadOk == 1) {
    catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
    }
-if ($uploadOk == 0) {
-    echo '<script>alert("Hiba történt a hozzáadás során!");</script>';
-}
-echo '<script>parent.window.location.reload(true);</script>'; // Redirect and reload index
 ?>
 </body>
 </html>

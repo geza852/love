@@ -249,12 +249,24 @@ document.getElementById("form-img").addEventListener("change", function(e){
     
     if (file = this.files[0]) {
         img = new Image();
+        
         img.onload = function() {
             if ((this.width > 500) || (this.height > 600)) {
                 e.target.value = "";
                 formImgError.innerHTML = "Túl nagy képméret!";
             }
+            
+            if (file.name.split('.').pop() !== "jpg") {
+                e.target.value = "";
+                formImgError.innerHTML = "Csak .jpg képformátum!";
+            }
         };
+        
+        img.onerror = function() {
+            e.target.value = "";
+            formImgError.innerHTML = "Hibás fájlformátum!";
+        };
+
         img.src = _URL.createObjectURL(file);
     }
 });
