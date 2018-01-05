@@ -1,9 +1,11 @@
 // *Input figyelő* //
 function inputValue(e) {
     if (e.currentTarget.value.length !== 0) {
+        e.currentTarget.previousElementSibling.classList.add("load-inputs");
         e.currentTarget.previousElementSibling.style.opacity = "1";
     } else {
-       e.currentTarget.previousElementSibling.style.opacity = "0";
+        e.currentTarget.previousElementSibling.classList.remove("load-inputs");
+        e.currentTarget.previousElementSibling.style.opacity = "0";
     }
 }
 
@@ -243,6 +245,7 @@ var _URL = window.URL,
 
 document.getElementById("form-img").addEventListener("change", function(e){
     var file,
+        fileName,
         img;
         
     formImgError.innerHTML = "";
@@ -251,14 +254,21 @@ document.getElementById("form-img").addEventListener("change", function(e){
         img = new Image();
         
         img.onload = function() {
+            fileName = file.name.split('.');
+            
             if ((this.width > 500) || (this.height > 600)) {
                 e.target.value = "";
                 formImgError.innerHTML = "Túl nagy képméret!";
             }
             
-            if (file.name.split('.').pop() !== "jpg") {
+            if (fileName.pop() !== "jpg") {
                 e.target.value = "";
                 formImgError.innerHTML = "Csak .jpg képformátum!";
+            }
+            
+            if (fileName[0].length < 1) {
+                e.target.value = "";
+                formImgError.innerHTML = "Hibás fájlnév!";
             }
         };
         
@@ -273,6 +283,9 @@ document.getElementById("form-img").addEventListener("change", function(e){
 
 // *Lassú ugrás linkekhez* //
 window.onload = function () {
+    document.getElementById("img-container").className = "load-showing";
+    console.log("asd");
+    
     var findNavs = Array.from(document.getElementsByTagName("a"));
     findNavs.forEach(function (val) {
         var arr = val.href.split("#");

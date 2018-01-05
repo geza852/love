@@ -288,11 +288,89 @@
         ],
         "places": [
             "\u00dajpest V\u00e1rosnapok",
-            "Korda, Balázs Klári koncert",
-            "Balkán Fanatik koncert",
+            "Korda, Bal\u00e1zs Kl\u00e1ri koncert",
+            "Balk\u00e1n Fanatik koncert",
             "Neoton koncert"
         ],
         "drive": "",
         "imgname": "neoton.jpg"
+    },
+    {
+        "dates": [
+            "2017-09-20",
+            ""
+        ],
+        "places": [
+            "Duna pl\u00e1za"
+        ],
+        "drive": "",
+        "imgname": "it.jpg"
+    },
+    {
+        "dates": [
+            "2017-10-07",
+            ""
+        ],
+        "places": [
+            "Macskaki\u00e1ll\u00edt\u00e1s"
+        ],
+        "drive": "https:\/\/drive.google.com\/open?id=0B1hZGvsgdZekMWZDVGpEU1JHUzA",
+        "imgname": null
+    },
+    {
+        "dates": [
+            "2017-11-01",
+            ""
+        ],
+        "places": [
+            "Gell\u00e9rt-hegy"
+        ],
+        "drive": "",
+        "imgname": null
+    },
+    {
+        "dates": [
+            "2017-11-22",
+            ""
+        ],
+        "places": [
+            "Duna pl\u00e1za"
+        ],
+        "drive": "",
+        "imgname": "halal.jpg"
+    },
+    {
+        "dates": [
+            "2017-12-03",
+            ""
+        ],
+        "places": [
+            "\u00dajpesti kar\u00e1csonyi v\u00e1s\u00e1r"
+        ],
+        "drive": "",
+        "imgname": "ujpest_karacsony.jpg"
+    },
+    {
+        "dates": [
+            "2017-12-14",
+            ""
+        ],
+        "places": [
+            "Bazilika kar\u00e1csonyi v\u00e1s\u00e1r",
+            "Erzs\u00e9bet t\u00e9r"
+        ],
+        "drive": "https:\/\/drive.google.com\/drive\/folders\/1Qw2T2sIMGTZbHYHe2-uM3mCZMLJQx4WN?usp=sharing",
+        "imgname": "_DSC4615-2.jpg"
+    },
+    {
+        "dates": [
+            "2017-12-16",
+            ""
+        ],
+        "places": [
+            "B\u00e9cs"
+        ],
+        "drive": "https:\/\/drive.google.com\/drive\/folders\/1lMaxEwz2fGqZm8bGhl0gHbUDke-36aZG?usp=sharing",
+        "imgname": "_DSC4677.jpg"
     }
 ]

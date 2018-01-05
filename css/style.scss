@@ -3,6 +3,8 @@
 
 @import '_bounce';
 @import '_slide';
+@import '_showing';
+@import '_inputs';
 
 @font-face {
     font-family: myFirstFont;
@@ -28,6 +30,14 @@ a {
 
 *:focus {
     outline: none;
+}
+
+.load-showing {
+    animation: showing 1s forwards;
+}
+
+.load-inputs {
+    animation: inputs 1s;
 }
 
 #container {
@@ -182,6 +192,7 @@ a {
     height: auto;
     margin: 0 auto;
     overflow: hidden;
+    opacity: 0;
     
     #slideshow {
         width: 500%;
@@ -374,11 +385,13 @@ ul {
         border-radius: 2px;
         box-sizing: border-box;
         margin-bottom: 20px;
+        z-index: 2;
     }
-    
+
     .form-input-text {
         opacity: 0;
-        transition: all 500ms ease-in-out;
+        transition: all 300ms ease-in-out;
+        z-index: 1;
     }
     
     #plus-minus-buttons {
@@ -460,6 +473,7 @@ ul {
 .christmas-wrapper {
     height: 100vh;
     position: relative;
+    animation: showing 1s;
 }
 $size: 200px;
 $leaf-color: #7DAE41;

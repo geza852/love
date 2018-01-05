@@ -338,5 +338,39 @@
         ],
         "drive": "",
         "imgname": "halal.jpg"
+    },
+    {
+        "dates": [
+            "2017-12-03",
+            ""
+        ],
+        "places": [
+            "\u00dajpesti kar\u00e1csonyi v\u00e1s\u00e1r"
+        ],
+        "drive": "",
+        "imgname": "ujpest_karacsony.jpg"
+    },
+    {
+        "dates": [
+            "2017-12-14",
+            ""
+        ],
+        "places": [
+            "Bazilika kar\u00e1csonyi v\u00e1s\u00e1r",
+            "Erzs\u00e9bet t\u00e9r"
+        ],
+        "drive": "https:\/\/drive.google.com\/drive\/folders\/1Qw2T2sIMGTZbHYHe2-uM3mCZMLJQx4WN?usp=sharing",
+        "imgname": "_DSC4615-2.jpg"
+    },
+    {
+        "dates": [
+            "2017-12-16",
+            ""
+        ],
+        "places": [
+            "B\u00e9cs"
+        ],
+        "drive": "https:\/\/drive.google.com\/drive\/folders\/1lMaxEwz2fGqZm8bGhl0gHbUDke-36aZG?usp=sharing",
+        "imgname": "_DSC4677.jpg"
     }
 ]

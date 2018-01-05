@@ -1,12 +1,8 @@
-<?php header("Location:index.html"); ?>  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">    
-</head>
-<body>
+<?php 
+header("Content-type: text/plain; charset=utf-8"); 
+header("Location:index.html");
 
-<?php
+
     
     // *File feltöltés* //
 $imgname = null;
@@ -42,12 +38,7 @@ if ($uploadOk == 1) {
     // *Form adatok elküldése* //
     $myFile = "data.json";
     $arr_data = array(); // create empty array
-    
-/*    for ($i = 0; $i < 4; $i++) {
-        if (isset($_POST["place-" . $i])) {
-            $places[$i] = $_POST["place-" . $i];
-        }
-    } */
+
   try
   {
 	   //Get form data
@@ -92,5 +83,3 @@ if ($uploadOk == 1) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
    }
 ?>
-</body>
-</html>
