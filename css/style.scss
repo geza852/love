@@ -102,7 +102,7 @@ a {
                 position: absolute;
                 left: 0;
                 right: 0;
-                //animation: bounce 8s infinite;
+                animation: bounce 8s infinite;
     
                 &:before {
                     font-family: FontAwesome;
@@ -124,8 +124,8 @@ a {
                 text-align: center;
                 font-variant: small-caps;
                 color: #FF5252;
-                //animation: bounce 8s infinite;
-                //animation-delay: 4s;
+                animation: bounce 8s infinite;
+                animation-delay: 4s;
             }
         }
     }
@@ -465,81 +465,6 @@ ul {
         &:hover {
             background-color: #FF5252;
             color: #FFFFFF;
-        }
-    }
-}
-
-// ------------------------- CHRISTMAS ----------------------------------------
-.christmas-wrapper {
-    height: 100vh;
-    position: relative;
-    animation: showing 1s;
-}
-$size: 200px;
-$leaf-color: #7DAE41;
-$trunk-color: #855726;
-$bg: #0C1E42;
-
-.christmas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: $size;
-    height: $size;
-    position: relative;
-    border-radius: 50%;
-    border: 3px solid #3E4F64;
-    background-color: $bg;
-    background-image:
-        // decoration
-        radial-gradient(circle at 50% 18%, yellow 3%, transparent 3.5%),
-        // top
-        linear-gradient(60deg, darken($leaf-color,0%) 8%, transparent 8.5%),
-        linear-gradient(-60deg, darken($leaf-color,1.5%) 8%, transparent 8.5%),
-        // middle
-        linear-gradient(60deg, darken($leaf-color,3%) 10%, transparent 10.5%),
-        linear-gradient(-60deg, darken($leaf-color,4.5%) 10%, transparent 10.5%),
-        // bottom
-        linear-gradient(60deg, darken($leaf-color,6%) 12%, transparent 12.5%),
-        linear-gradient(-60deg, darken($leaf-color,7.5%) 12%, transparent 12.5%),
-        // trunk
-        linear-gradient(80deg, darken($trunk-color,0%) 5%,  transparent 5.5%),
-        linear-gradient(-80deg, darken($trunk-color,1.5%) 5%, transparent 5.5%);
-    background-position:
-        // decoration
-        0 0,
-        // leaves-top
-        $size/2 $size/2.5, $size/2 $size/2.5,
-        // leaves-middle
-        $size/2 $size/1.8, $size/2 $size/1.8,
-        // leaves-bottom
-        $size/2 $size/1.4, $size/2 $size/1.4,
-        // trunk
-        $size/2 $size/1.25, $size/2 $size/1.25;
-    
-    // snow -----
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        transform: rotate(-15deg);
-        background-image:
-            radial-gradient(circle at 30% 30%, #fff 1.5%, transparent 2.5%),
-            radial-gradient(circle at 80% 70%, #fff 1.5%, transparent 2.5%),
-            radial-gradient(circle at 30% 50%, #fff 1%, transparent 2%),
-            radial-gradient(circle at 70% 85%, #fff 1%, transparent 2%);
-        background-size: 100% 100%, 100% 100%, 50% 100%, 50% 50%;
-        background-position: 0 0, 0 0, 0 0, 0 0;
-        animation: snow 6s linear infinite forwards;
-        @keyframes snow {
-            100% {
-                background-position: 0px $size, 0 $size, 0px $size, 0px $size;
-            }
         }
     }
 }
