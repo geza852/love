@@ -14,13 +14,13 @@ var tdate = new Date(),
     tyear = tdate.getFullYear(),
     dateIndex;
 
-function plusDates(n) {
+function plusDates(n, b) {
     var currDate = document.getElementsByClassName("curr-date"),
         timelineDate = document.getElementsByClassName("timeline-date"),
         arrows = document.getElementsByClassName,
         tline_ul = document.getElementsByClassName("timeline_ul");
     
-    dateIndex += n;
+    if (b !== true) {dateIndex += n;}
 
     if (dateIndex === currDate.length) {
         dateIndex = currDate.length - 1;
@@ -163,12 +163,13 @@ function createTimeline() {
         }
     }
     dateIndex = document.getElementsByClassName("curr-date").length - 1;
-    plusDates(dateIndex);
+    plusDates(dateIndex, true);
 }
 
 // *Idővonal lekérdezés* //
 var response;
-(function () {
+var timeline = (function invokeTimeline() {
+    
     var request = new XMLHttpRequest();
     request.open("GET", "data.json");
     request.onreadystatechange = function () {
@@ -178,6 +179,7 @@ var response;
         }
     };
     request.send();
+    return invokeTimeline;
 })();
 
 // *Form megnyitás* //
@@ -191,7 +193,8 @@ document.getElementById("add-button").addEventListener("click", function () {
     
     for (var i = 0; i < formDateDrive.length; i++) {
         formDateDrive[i].addEventListener("keyup", inputValue);
-    } 
+    }
+    console.log(dateIndex);
 });
 
 
@@ -281,10 +284,36 @@ document.getElementById("form-img").addEventListener("change", function(e){
     }
 });
 
+$('#adding-form').submit(function(e){
+    
+    
+    e.preventDefault();
+    $.ajax({
+        url:'form.php',
+        type:'post',
+        data:$('#adding-form').serialize(),
+        success:function(){
+            
+            var currDate = document.getElementsByClassName("curr-date"),
+                timelineDate = document.getElementsByClassName("timeline-date"),
+                datesHeader = document.getElementById("dates-header"),
+                timelineDates = document.getElementById("timeline-dates");
+            document.getElementById("timeline").innerHTML = "";
+            
+            for (var i = currDate.length - 1; i >= 0; i--) {
+                datesHeader.removeChild(currDate[i]);
+                timelineDates.removeChild(timelineDate[i]);
+            }
+            alert("Sikeres hozzáadás az idővonalhoz!");
+            
+            timeline();
+        }
+    });
+});
+
 // *Lassú ugrás linkekhez* //
 window.onload = function () {
     document.getElementById("img-container").className = "load-showing";
-    console.log("asd");
     
     var findNavs = Array.from(document.getElementsByTagName("a"));
     findNavs.forEach(function (val) {
@@ -300,3 +329,4 @@ window.onload = function () {
         }
     });
 };
+

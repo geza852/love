@@ -1,9 +1,6 @@
 <?php 
 header("Content-type: text/plain; charset=utf-8"); 
-header("Location:index.html");
-
-
-    
+   
     // *File feltöltés* //
 $imgname = null;
 $target_dir = "uploads/";
