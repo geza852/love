@@ -305,7 +305,7 @@ $('#adding-form').submit(function(e){
             alert("Sikeres hozzáadás az idővonalhoz!"); 
         }
     });
-    $(document).ajaxStop(timeline());
+    $(document).ajaxStop(timeline);
 });
 
 // *Lassú ugrás linkekhez* //
