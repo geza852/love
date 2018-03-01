@@ -194,7 +194,6 @@ document.getElementById("add-button").addEventListener("click", function () {
     for (var i = 0; i < formDateDrive.length; i++) {
         formDateDrive[i].addEventListener("keyup", inputValue);
     }
-    console.log(dateIndex);
 });
 
 
@@ -285,8 +284,6 @@ document.getElementById("form-img").addEventListener("change", function(e){
 });
 
 $('#adding-form').submit(function(e){
-    
-    
     e.preventDefault();
     $.ajax({
         url:'form.php',
@@ -304,9 +301,8 @@ $('#adding-form').submit(function(e){
                 datesHeader.removeChild(currDate[i]);
                 timelineDates.removeChild(timelineDate[i]);
             }
-            alert("Sikeres hozzáadás az idővonalhoz!");
-            
             timeline();
+            alert("Sikeres hozzáadás az idővonalhoz!"); 
         }
     });
 });
@@ -329,4 +325,3 @@ window.onload = function () {
         }
     });
 };
-
