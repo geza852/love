@@ -302,10 +302,9 @@ $('#adding-form').submit(function(e){
                 datesHeader.removeChild(currDate[i]);
                 timelineDates.removeChild(timelineDate[i]);
             }
-            alert("Sikeres hozzáadás az idővonalhoz!"); 
         }
     });
-    $(document).ajaxStop(timeline());
+    $(document).ajaxStop(timeline);
 });
 
 // *Lassú ugrás linkekhez* //
