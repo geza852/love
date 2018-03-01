@@ -176,6 +176,7 @@ var timeline = (function invokeTimeline() {
         if ((request.status === 200) && (request.readyState === 4)) {
             response = JSON.parse(request.responseText);
             createTimeline();
+            console.log('reloaded');
         }
     };
     request.send();
@@ -301,10 +302,10 @@ $('#adding-form').submit(function(e){
                 datesHeader.removeChild(currDate[i]);
                 timelineDates.removeChild(timelineDate[i]);
             }
-            timeline();
             alert("Sikeres hozzáadás az idővonalhoz!"); 
         }
     });
+    $(document).ajaxStop(timeline());
 });
 
 // *Lassú ugrás linkekhez* //
