@@ -171,7 +171,7 @@ var response;
 var timeline = (function invokeTimeline() {
     
     var request = new XMLHttpRequest();
-    request.open("GET", "data.json");
+    request.open("POST", "data.json");
     request.onreadystatechange = function () {
         if ((request.status === 200) && (request.readyState === 4)) {
             response = JSON.parse(request.responseText);
@@ -304,7 +304,7 @@ $('#adding-form').submit(function(e){
             }
         }
     });
-    $(document).ajaxStop(timeline);
+    $(document).ajaxStop(timeline());
 });
 
 // *Lassú ugrás linkekhez* //
